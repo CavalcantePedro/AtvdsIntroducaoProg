@@ -2,7 +2,8 @@
   "files.associations": {
     "stdio.h": "c",
     "1186.C": "cpp",
-    "TEST.C": "cpp"
+    "TEST.C": "cpp",
+    "strings.h": "c"
   },
   "C_Cpp_Runner.cCompilerPath": "C:\\MinGW\\bin\\gcc.exe",
   "C_Cpp_Runner.cppCompilerPath": "C:\\MinGW\\bin\\g++.exe"
