@@ -3,8 +3,8 @@
 ---
 ### 👀 Sobre o reposiório:
 
-Este repositório foi criado para armazenar códigos feitos durante o andamento da cadeira de Introdução a programação do curso de Engenhaia de Computação da `UFPB`.
-Todos os códigos foram desnvolvidos utilizando a linguaem c.
+Este repositório foi criado para armazenar códigos feitos durante o andamento da cadeira de Introdução a programação do curso de Engenhaia de Computação da `UFPB`.</br>
+Todos os códigos foram desnvolvidos utilizando a linguaem c.</br>
 Sinta-se a vontade para utilizar os códigos deste repositório para fins de aprendizem.
 
 ### 🌍 Onde me encontrar:
