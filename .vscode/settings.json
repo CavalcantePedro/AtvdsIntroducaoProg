@@ -3,7 +3,8 @@
     "stdio.h": "c",
     "1186.C": "cpp",
     "TEST.C": "cpp",
-    "strings.h": "c"
+    "strings.h": "c",
+    "iostream": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "C:\\MinGW\\bin\\gcc.exe",
   "C_Cpp_Runner.cppCompilerPath": "C:\\MinGW\\bin\\g++.exe"
