@@ -12,6 +12,7 @@ typedef struct
     char nome[TAM_MAX_NOME];
     float n1, n2 ,n3;
     float nr;
+    float media;
 
 } DadosAluno;
 
@@ -39,32 +40,63 @@ void LerInfo(DadosAluno *alunos, int tamA)
         TirarEspacos(alunos[i].nome);
         printf("Insira as 3 notas do aluno chamado %s:\n", alunos[i].nome);
         scanf("%f %f %f", &alunos[i].n1, &alunos[i].n2, &alunos[i].n3);
-        if ((alunos[i].n1+alunos[i].n2+alunos[i].n3)/3 >=4 && (alunos[i].n1+alunos[i].n2+alunos[i].n3)/3 < 7)
+        alunos[i].media =(alunos[i].n1+alunos[i].n2+alunos[i].n3)/3;
+        if (alunos[i].media >=4 && alunos[i].media < 7)
         {
-            printf("Insir a nota de recuperação do aluno chamado %s:\n", alunos[i].nome);
+            printf("Insira a nota de recuperacao do aluno chamado %s:\n", alunos[i].nome);
             scanf("%f", &alunos[i].nr);
         } 
     }
 }
 
-void PrintarInfo(const DadosAluno* alunos, int tam, char* disc)
+void MediaF(DadosAluno *alunos, int index)
+{
+    float mediaF;
+    mediaF = ((alunos[index].media*6) + (alunos[index].nr*4))/10;
+    alunos[index].media = mediaF;
+}
+
+void PrintarInfo(const DadosAluno *alunos, int tam, char* disc)
 {
     int i = 0;
     printf("Disciplina: %s", disc);
     printf("-----------------------------------------------------------------------------------------------------------------------\n");
-    printf("Matricula \t Nome \t\t\t Nota 1 \t Nota 2 \t Nota 3 \t Rec \t Media \t Situacao\n");
+    printf("Matricula \tNome \t\t Nota 1\t\t Nota 2\t\t Nota 3\t\t Rec \t\t Media \t Situacao\n");
     printf("------------------------------------------------------------------------------------------------------------------------\n");
     
     while (i < tam)
     {
         printf("%d",alunos[i].matricula);
-        printf("\t\t %s \t", alunos[i].nome);
-        printf("%.1f \t", alunos[i].n1);
-        printf("\t %.1f \t", alunos[i].n2);
-        printf("\t %.1f \t", alunos[i].n3);
-        printf("\t %.1f \t", alunos[i].nr);
-        printf(" %.1f \t", (alunos[i].n1+alunos[i].n2+alunos[i].n3)/3);
-    
+        printf("\t");
+        printf("%s", alunos[i].nome);
+        printf("\t\t");
+        printf("%.1f", alunos[i].n1);
+        printf("\t\t");
+        printf("%.1f", alunos[i].n2);
+        printf("\t\t");
+        printf("%.1f", alunos[i].n3);
+        printf("\t\t");
+        if (alunos[i].media >=4 && alunos[i].media < 7)
+        {
+            printf("%.1f", alunos[i].nr);
+            MediaF(alunos, i);
+        }
+        else
+        {
+            printf("-  ");
+        }
+        printf("\t\t\t");
+        printf("%.1f", alunos[i].media);
+        printf("\t");
+        if(alunos[i].media <= 4)
+        {
+            printf("Reprovado");
+        }
+        else
+        {
+            printf("Aprovado");
+        }
+        
         printf("\n");
 
         i++;
@@ -85,7 +117,7 @@ int main()
     
     DadosAluno alunos[quantAlu];
     
-    LerInfo(&alunos, quantAlu);
+    LerInfo(alunos, quantAlu);
     PrintarInfo(alunos, quantAlu, disciplina);
 
     return 0;
