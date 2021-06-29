@@ -12,52 +12,81 @@ typedef struct
     char nome[TAM_MAX_NOME];
     float n1, n2 ,n3;
     float nr;
+
 } DadosAluno;
+
+void TirarEspacos(char* str)
+{
+    int i;
+    for ( i = 0; i < strlen(str); i++)
+    {
+        if(str[i]=='\n')
+        {
+            str[i] = str[i+1];
+        }
+    }
+}
+
+void LerInfo(DadosAluno *alunos, int tamA)
+{ 
+    int i;
+    for (i = 0; i < tamA; i++)
+    { 
+        printf("Digite a matricula do %d aluno:\n", i+1);
+        scanf("%d%*c", &alunos[i].matricula);
+        printf("Digite o nome do %d aluno:\n", i+1);
+        fgets(alunos[i].nome, TAM_MAX_NOME ,stdin);
+        TirarEspacos(alunos[i].nome);
+        printf("Insira as 3 notas do aluno chamado %s:\n", alunos[i].nome);
+        scanf("%f %f %f", &alunos[i].n1, &alunos[i].n2, &alunos[i].n3);
+        if ((alunos[i].n1+alunos[i].n2+alunos[i].n3)/3 >=4 && (alunos[i].n1+alunos[i].n2+alunos[i].n3)/3 < 7)
+        {
+            printf("Insir a nota de recuperação do aluno chamado %s:\n", alunos[i].nome);
+            scanf("%f", &alunos[i].nr);
+        } 
+    }
+}
+
+void PrintarInfo(const DadosAluno* alunos, int tam, char* disc)
+{
+    int i = 0;
+    printf("Disciplina: %s", disc);
+    printf("-----------------------------------------------------------------------------------------------------------------------\n");
+    printf("Matricula \t Nome \t\t\t Nota 1 \t Nota 2 \t Nota 3 \t Rec \t Media \t Situacao\n");
+    printf("------------------------------------------------------------------------------------------------------------------------\n");
+    
+    while (i < tam)
+    {
+        printf("%d",alunos[i].matricula);
+        printf("\t\t %s \t", alunos[i].nome);
+        printf("%.1f \t", alunos[i].n1);
+        printf("\t %.1f \t", alunos[i].n2);
+        printf("\t %.1f \t", alunos[i].n3);
+        printf("\t %.1f \t", alunos[i].nr);
+        printf(" %.1f \t", (alunos[i].n1+alunos[i].n2+alunos[i].n3)/3);
+    
+        printf("\n");
+
+        i++;
+    }  
+}   
 
 
 int main()
 {
-    int quantAlu,i;
+    int quantAlu;
     char disciplina[TAM_MAX_DISC];
     
     puts("Seja Bem vindo !");
     puts("Qual o nome da disciplina ?");
     fgets(disciplina, TAM_MAX_DISC, stdin);
     puts("Qual  quantidade de alunos ?");
-    scanf("%d*%c", &quantAlu);
+    scanf("%d", &quantAlu);
     
     DadosAluno alunos[quantAlu];
     
-    for (i = 0; i < quantAlu; i++)
-    {
-        printf("Digite a matricula do %d aluno:\n", i+1);
-        scanf("%f", &alunos[i].matricula);
-        printf("Digite o nome do %d aluno:\n", i+1);
-        scanf("%s", &alunos[i].nome);
-    }
-
-    for (i = 0; i < quantAlu; i++)
-    {
-        printf("Insira as 3 notas do aluno chamado %s\n:", alunos[i].nome);
-        scanf("%f %f %f", &alunos[i].n1, &alunos[i].n2, &alunos[i].n3);
-    }
-
-    for (i = 0; i < quantAlu; i++)
-    {
-        float media =alunos[i].n1+alunos[i].n2+alunos[i].n3/3; 
-
-        if (media >= 4 && media <= 7)
-        {
-            printf("Diga a nota de recuperação do aluno %s que tem media atual igual a %f:\n", &alunos[i].nome, &media);
-            scanf("%f", &alunos[i].nr);
-        }
-    }
-    
-    printf("Disciplina: %s\n", disciplina);
-    printf("---------------------------------------------------------------------------------");
-    printf("Matricula \t\t\t Nome \t\t\t Nota 1 \t Nota 2 \t Nota 3 \t Rec \t Media \t\t Situacao\n");
-    
-
+    LerInfo(&alunos, quantAlu);
+    PrintarInfo(alunos, quantAlu, disciplina);
 
     return 0;
 }
