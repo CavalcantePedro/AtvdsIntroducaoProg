@@ -1,13 +1,13 @@
 # Atividade-Introdução a Progamação
 
 ---
-### 👀 Sobre o reposiório:
+### 👀 Sobre o repositório:
 
-Este repositório foi criado para armazenar códigos feitos durante o andamento da cadeira de Introdução a programação do curso de Engenhaia de Computação da `UFPB`.</br>
+Este repositório foi criado para armazenar códigos feitos durante o andamento da cadeira de Introdução a programação do curso de Engenharia de Computação da `UFPB`.</br>
 
-Todos os códigos foram desnvolvidos utilizando a linguaem c.</br>
+Todos os códigos foram desnvolvidos utilizando a linguagem c/c++.</br>
 
-Sinta-se a vontade para utilizar os códigos deste repositório para fins de aprendizem.
+Sinta-se a vontade para utilizar os códigos deste repositório para fins de aprendizagem.
 
 ### 🌍 Onde me encontrar:
 
