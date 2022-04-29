@@ -5,7 +5,7 @@
 
 Este repositório foi criado para armazenar códigos feitos durante o andamento da cadeira de Introdução a programação do curso de Engenharia de Computação da `UFPB`.</br>
 
-Todos os códigos foram desnvolvidos utilizando a linguagem c/c++.</br>
+Todos os códigos foram desenvolvidos utilizando a linguagem c/c++.</br>
 
 Sinta-se a vontade para utilizar os códigos deste repositório para fins de aprendizagem.
 
